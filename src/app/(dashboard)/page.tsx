@@ -5,48 +5,18 @@ import { signin } from "@/app/controllers/authControllers";
 import { useEffect, useState } from "react";
 import { getUrgentTasks, updateTask } from "@/app/controllers/tasksController";
 import { formatDate } from "@/app/utils/format_date";
-import Chart from "react-apexcharts";
+// import Chart from "react-apexcharts";
 import { getDashboardData } from "@/app/controllers/dashboardController";
 import { Timestamp } from "firebase/firestore";
 export default function Home() {
   const [tasks, setTasks] = useState<any>([]);
-  const state = {
-    options:{
 
-    },
-    series: [60],
-   
-    plotOptions: {
-      radialBar: {
-        hollow: {
-          margin: 15,
-          size: "70%"
-        },
-       
-        dataLabels: {
-          showOn: "always",
-          name: {
-            offsetY: -10,
-            show: true,
-            color: "#888",
-            fontSize: "13px"
-          },
-          value: {
-            color: "#111",
-            fontSize: "30px",
-
-            show: true
-          }
-        }
-      }
-    },
-  
-    stroke: {
-      lineCap: "round",
-    },
-    labels: ["Efficiency"]
-  };
-
+  const [Chart, setChart] = useState<any>();
+  useEffect(() => {
+    import("react-apexcharts").then((mod) => {
+      setChart(() => mod.default);
+    });
+  }, []);
 const [dashboardData, setDashboardData] = useState<any>(null);
 const [loading, setloading] = useState<Boolean>(false);
 const [showLogoutButton, setshowLogoutButton] = useState<Boolean>(false);
@@ -136,7 +106,7 @@ useEffect(() => {
       <div className="z-0">
       <Chart  
     options={{ 
-        labels: state.labels,
+        labels: ["Efficiency"],
         stroke: {
             lineCap: "round"
         },

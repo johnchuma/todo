@@ -17,4 +17,4 @@ This is a simple To-Do web application built using Next.js.
 ## Getting Started
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/todo-app.git
+   git clone https://github.com/johnchuma/todo-app.git

@@ -84,7 +84,7 @@ const Tags = () => {
     
                 <div className="flex flex-wrap mt-5 ">  
                 {tags.map((item:any)=>{
-                    return <div style={{ backgroundColor:item.color+15,color:item.color }} 
+                    return <div key={item.id} style={{ backgroundColor:item.color+15,color:item.color }} 
                     className="border space-x-2 cursor-pointer  items-center flex font-bold text-sm bg-opacity-15 border-slate-300 me-2 mb-2 py-2 px-2 rounded-full">
                         <h1>{item.name}</h1>
                         <svg onClick={()=>{

@@ -35,7 +35,7 @@ const TaskComponent = ({item}:any) => {
     }
     {showOptions==true&& <div className="absolute right-0 py-5 px-8 rounded shadow-lg space-y-1 bg-white z-50 ">
        {["Low","High"].map((priority)=>{
-        return <div onClick={()=>{
+        return <div key={priority} onClick={()=>{
             updateTask(item.id,{priority})
             setshowOptions(false)
         }} className="cursor-pointer hover:text-indigo-600 font-bold  ">{priority}</div>
@@ -67,7 +67,7 @@ const TaskComponent = ({item}:any) => {
    <h1 className="mt-6 font-bold ">Change status</h1>
    <div className="grid grid-cols-4 mt-2 gap-3">
         {["On Backlogs","To Do","In Progress","Completed"].map((e)=>{
-            return <div onClick={()=>{
+            return <div key={e} onClick={()=>{
                 if(e=="Completed"){
                     updateTask(item.id,{status:e,completedAt:Timestamp.now()})
                 }else{

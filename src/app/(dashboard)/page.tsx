@@ -118,8 +118,8 @@ useEffect(() => {
        
         }
           
-        ].map((item)=>{
-            return <div className="bg-white p-5 rounded-md w-full flex  items-center space-x-2">
+        ].map((item,index)=>{
+            return <div key={index} className="bg-white p-5 rounded-md w-full flex  items-center space-x-2">
                        <div className="h-14 w-14 rounded-full bg-primary bg-opacity-40 flex justify-center items-center text-[#86AF2E]">
                         {item.icon}
                        </div>
@@ -180,8 +180,8 @@ useEffect(() => {
           <div className=" text-mutedColor font-bold">
             No Data
           </div>
-          </div>: tasks.map((item:any)=>{
-           return<div onClick={()=>{
+          </div>: tasks.map((item:any,index:any)=>{
+           return<div key={index} onClick={()=>{
 
           }} className="flex flex-col md:flex-row justify-between cursor-pointer">
             <div className="flex items-center space-x-2">

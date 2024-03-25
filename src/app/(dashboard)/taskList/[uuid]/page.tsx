@@ -75,7 +75,7 @@ const TaskList = ({params}:any) => {
             
             
         ].map((item,index)=>{
-            return <div>
+            return <div key={index}>
             <div onClick={()=>{
                 setselectedTab(index)
             }} className="flex space-x-2 justify-center cursor-pointer text-center font-bold items-center ">
@@ -105,7 +105,7 @@ const TaskList = ({params}:any) => {
         <h1 className="text-mutedColor font-bold">To Do</h1>
         <div className="mt-2 space-y-3">
             {tasks.filter((item:any)=>item.description.toLowerCase().includes(keyword.toString())).filter((item:any)=>item.status=="To Do").map((item:any)=>{
-                return <TaskComponent item={item}/>
+                return <div key={item.id}><TaskComponent item={item}/></div>
                 
             })}
         </div>
@@ -113,8 +113,8 @@ const TaskList = ({params}:any) => {
         <div>
         <h1 className="text-mutedColor font-bold">In Progress</h1>
         <div className="mt-2 space-y-3">
-            {tasks.filter((item:any)=>item.description.toLowerCase().includes(keyword.toString())).filter((item:any)=>item.status=="In Progress").map((item:any)=>{
-                return <TaskComponent item={item}/>
+            {tasks.filter((item:any)=>item.description.toLowerCase().includes(keyword.toString())).filter((item:any)=>item.status=="In Progress").map((item:any,index:any)=>{
+                return <div key={item.id}><TaskComponent item={item}/></div>
                 
             })}
         </div>
@@ -123,7 +123,7 @@ const TaskList = ({params}:any) => {
         <h1 className="text-mutedColor font-bold">Completed</h1>
         <div className="mt-2 space-y-3">
             {tasks.filter((item:any)=>item.description.toLowerCase().includes(keyword.toString())).filter((item:any)=>item.status=="Completed").map((item:any)=>{
-                return <TaskComponent item={item}/>
+                return <div key={item.id}><TaskComponent item={item}/></div>
                 
             })}
         </div>
@@ -132,14 +132,14 @@ const TaskList = ({params}:any) => {
 
        {selectedTab==1&&<div className="grid grid-cols-3 gap-5 mt-5">
         {tasks.filter((item:any)=>item.description.toLowerCase().includes(keyword.toString())).filter((item:any)=>item.status=="On Backlogs").map((item:any)=>{
-                return <TaskComponent item={item}/>
+                return <div key={item.id}><TaskComponent item={item}/></div>
                 
             })}
        </div>}
 
        {selectedTab==2&&<div className="grid grid-cols-3 gap-5 mt-5">
         {tasks.filter((item:any)=>item.description.toLowerCase().includes(keyword.toString())).filter((item:any)=>item.priority=="High" && ["To Do","In Progress"].includes(item.status)).map((item:any)=>{
-                return <TaskComponent item={item}/>
+                return <div key={item.id}><TaskComponent item={item}/></div>
                 
             })}
        </div>}

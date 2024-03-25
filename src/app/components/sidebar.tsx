@@ -55,7 +55,7 @@ useEffect(() => {
           </svg>
         }
     ].map((item,index)=>{
-            return  <Link href={item.path} className="flex px-5 space-x-3 items-center font-semibold">
+            return  <Link key={index} href={item.path} className="flex px-5 space-x-3 items-center font-semibold">
                 {item.icon}
                 <h1>{item.title}</h1>
             </Link>
@@ -71,7 +71,7 @@ useEffect(() => {
               
                }
             ].map((item,index)=>{
-                    return  <Link href={item.path} className="flex px-5 space-x-3 items-center font-semibold">
+                    return  <Link key={index} href={item.path} className="flex px-5 space-x-3 items-center font-semibold">
                         {item.icon}
                         <h1>{item.title}</h1>
                     </Link>

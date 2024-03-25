@@ -21,7 +21,7 @@ const NewProject = ({refresh,setRefresh}:any) => {
 
        <div className="space-y-2">
        {projects.map((item:any)=>{
-            return <button onClick={()=>{
+            return <button key={item.id} onClick={()=>{
                 router.push(`/taskList/${item.id}`)
                 item.isActive = true,
                 addActiveProject(item)          

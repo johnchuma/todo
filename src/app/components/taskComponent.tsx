@@ -47,7 +47,7 @@ const TaskComponent = ({item}:any) => {
    }} className="border-0 focus:ring-0 w-full text-xl px-0"></textarea>
    <div className="flex flex-wrap mt-2">
    {item.tags.map((item:any)=>{
-    return <div className="rounded-full px-2 text-xs py-1 font-semibold"  style={{ backgroundColor:item.color+15,color:item.color }}>{item.name}</div>
+    return <div key={item.id} className="rounded-full px-2 text-xs py-1 font-semibold"  style={{ backgroundColor:item.color+15,color:item.color }}>{item.name}</div>
    })}
    </div>
    <div className="flex text-xs space-x-4 items-center mt-5">
@@ -122,7 +122,7 @@ const TaskComponent = ({item}:any) => {
    <h1 className="text-xl mt-1">{item.description}</h1>
    <div className="flex flex-wrap mt-2">
    {item.tags.map((item:any)=>{
-    return <div className="rounded-full px-2 text-xs py-1 font-semibold"  style={{ backgroundColor:item.color+15,color:item.color }}>{item.name}</div>
+    return <div key={item.id} className="rounded-full px-2 text-xs py-1 font-semibold"  style={{ backgroundColor:item.color+15,color:item.color }}>{item.name}</div>
    })}
    </div>
    <div className="flex text-xs space-x-4 items-center mt-5">

@@ -89,7 +89,7 @@ useEffect(() => {
         }
           
         ].map((item,index)=>{
-            return <div key={index} className="bg-white p-5 rounded-md w-full flex  items-center space-x-2">
+            return <div key={index} className="bg-white p-5 rounded-2xl w-full flex  items-center space-x-2">
                        <div className="h-14 w-14 rounded-full bg-primary bg-opacity-40 flex justify-center items-center text-[#86AF2E]">
                         {item.icon}
                        </div>
@@ -142,7 +142,7 @@ useEffect(() => {
 
      </div>
      <h1 className="mt-5 font-bold text-xl">Urgent tasks</h1>
-     <div className="bg-white space-y-2 border border-slate-200  w-full py-8 mt-2 px-5 rounded-lg ">
+     <div className="bg-white space-y-2   w-full py-8 mt-2 px-5 rounded-2xl ">
         {tasks.length<1?<div className="flex flex-col justify-center items-center">
           <div>
             <Image alt="no" height={1000} width={1000} className="w-24"  src="/nodata.webp"/>

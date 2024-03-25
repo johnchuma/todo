@@ -54,7 +54,7 @@ const TaskList = ({params}:any) => {
                 router.push(`/taskList/${e.target.value}`)
             }} className="font-bold text-2xl border-0 focus:border-0 focus:ring-0 bg-transparent  " defaultValue={project.id}>
                {projects.map((item:any)=>{
-                return <option value={item.id}>{item.name}</option>
+                return <option key={item.id} value={item.id}>{item.name}</option>
                })}
             </select>
         </div>

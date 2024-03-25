@@ -71,10 +71,12 @@ useEffect(() => {
    <main>
 
 
-    <div className="flex justify-between">
+    <div className="flex justify-between mt-10 md:mt-0 items-center ">
       <div>
-        <h1 className="font-bold text-2xl">Hello, {auth.currentUser?.displayName}</h1>
-        <p className="text-mutedColor text-sm">Welcome</p>
+      <h1 className="font-bold text-lg md:text-2xl block md:hidden">Dashboard</h1>
+
+        <h1 className="font-bold text-lg md:text-2xl hidden md:block">Hello, {auth.currentUser?.displayName}</h1>
+        <p className="text-mutedColor text-sm hidden md:block">Welcome</p>
       </div>
       <div className="relative">
         <Image onClick={()=>{
@@ -91,9 +93,9 @@ useEffect(() => {
     </div>
     <div className="w-full h-[1px] bg-lineColor mt-1"/>
 
-     <div className="grid grid-cols-12 mt-8">
-      <div className=" col-span-8">
-        <div className="grid grid-cols-2 gap-8">
+     <div className="grid grid-cols-12 mt-8 gap-y-5">
+      <div className=" col-span-12 md:col-span-8">
+        <div className="grid gird-cols-2  md:grid-cols-2 gap-8">
           {[
             {title:`${dashboardData.totalProjects} Projects`,subtitle:"Available projects",icon:<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
             <path d="M19.906 9c.382 0 .749.057 1.094.162V9a3 3 0 0 0-3-3h-3.879a.75.75 0 0 1-.53-.22L11.47 3.66A2.25 2.25 0 0 0 9.879 3H6a3 3 0 0 0-3 3v3.162A3.756 3.756 0 0 1 4.094 9h15.812ZM4.094 10.5a2.25 2.25 0 0 0-2.227 2.568l.857 6A2.25 2.25 0 0 0 4.951 21H19.05a2.25 2.25 0 0 0 2.227-1.932l.857-6a2.25 2.25 0 0 0-2.227-2.568H4.094Z" />
@@ -129,7 +131,7 @@ useEffect(() => {
           })}
         </div>
       </div>
-      <div className=" col-span-4 flex flex-col items-center z-0 justify-center">
+      <div className=" col-span-12 md:col-span-4 flex flex-col items-center z-0 justify-center">
         <h1 className="font-bold text-lg">Efficiency Overview</h1>
       <div className="z-0">
       <Chart  
@@ -181,7 +183,7 @@ useEffect(() => {
           </div>: tasks.map((item:any)=>{
            return<div onClick={()=>{
 
-          }} className="flex justify-between cursor-pointer">
+          }} className="flex flex-col md:flex-row justify-between cursor-pointer">
             <div className="flex items-center space-x-2">
             <input checked={false}  onChange={()=>{
               
@@ -192,8 +194,8 @@ useEffect(() => {
             <h1>{item.description}</h1>
             </div>
             
-           <div className="flex space-x-1 font-semibold">
-           <div className="flex text-xs space-x-4 items-center ">
+           <div className="flex  space-x-1 font-semibold text-mutedColor md:text-textColor">
+           <div className="flex  text-xs space-x-4 items-center ">
    <div className="flex  space-x-2 items-center">
    <svg xmlns="http://www.w3.org/2000/svg" fill="none"
     viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
@@ -202,7 +204,7 @@ useEffect(() => {
     </svg>
     <h1>{formatDate(item.startDate.toDate())}</h1>
    </div>
-   <div>-</div>
+   <div className="hidden md:block">-</div>
    <div className="flex  items-center">
     <h1>{formatDate(item.endDate.toDate())}</h1>
    </div>

@@ -8,7 +8,7 @@ import Link from "next/link";
 import { getActiveProject } from "../controllers/projectsController";
 import { getDashboardData } from "../controllers/dashboardController";
 
-const Sidebar = () => {
+const Sidebar = ({showMenu,setShowMenu}:any) => {
     const [openModal, setopenModal] = useState<Boolean>(false);
     const [projects, setProjects] = useState<any>([]);
    const [activeProject, setActiveProject] = useState<any>(null);
@@ -28,11 +28,21 @@ useEffect(() => {
     }, [refresh]);
     return ( <div className=" h-full">
         <div className="px-5">
-        <div className="flex space-x-2 mt-8 px-5 items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+        <div className="flex space-x-2 mt-8 px-5 justify-between md:justify-start items-center">
+        <h1 className="text-textColor font-bold text-lg  block md:hidden">Menu</h1>
+      
+        <svg onClick={()=>{
+            setShowMenu(false)
+        }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+         strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 cursor-pointer block md:hidden">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+</svg>
+
+        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="currentColor"
+         className="w-5 h-5  hidden md:block">
         <path d="M5.566 4.657A4.505 4.505 0 0 1 6.75 4.5h10.5c.41 0 .806.055 1.183.157A3 3 0 0 0 15.75 3h-7.5a3 3 0 0 0-2.684 1.657ZM2.25 12a3 3 0 0 1 3-3h13.5a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3v-6ZM5.25 7.5c-.41 0-.806.055-1.184.157A3 3 0 0 1 6.75 6h10.5a3 3 0 0 1 2.683 1.657A4.505 4.505 0 0 0 18.75 7.5H5.25Z" />
         </svg>
-        <h1 className="text-textColor font-bold text-lg">Smart To Do</h1>
+        <h1 className="text-textColor font-bold text-lg  hidden md:block">Smart To Do</h1>
         </div>
        
         {activeProject != null && <NewTask refresh={refresh} setRefresh={setRefresh}/> }
